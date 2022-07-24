@@ -1,6 +1,8 @@
 package AccountTests;
 
 import credit_card.Account;
+import io.qameta.allure.Description;
+import io.qameta.allure.junit4.DisplayName;
 import org.hamcrest.MatcherAssert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -25,6 +27,8 @@ public class PositionOfSpacesTest {
     }
 
     @Test
+    @DisplayName("Неверное расположение пробелов")
+    @Description("Проверка что программа не принимает пробелы в начале и конце строки")
     public void wrongSpacePositions() {
         Account someClient = new Account(nameToCheck);
         MatcherAssert.assertThat(someClient.checkNameToEmboss(), is(false));

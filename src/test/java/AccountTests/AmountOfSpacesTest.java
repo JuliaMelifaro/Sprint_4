@@ -1,6 +1,8 @@
 package AccountTests;
 
 import credit_card.Account;
+import io.qameta.allure.Description;
+import io.qameta.allure.junit4.DisplayName;
 import org.hamcrest.MatcherAssert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -25,6 +27,8 @@ public class AmountOfSpacesTest {
     }
 
     @Test
+    @DisplayName("Неверное количество пробелов")
+    @Description("Проверка, что программа не принимает записи, в которых более 1 пробела")
     public void wrongSpacesAmount() {
         Account someClient = new Account(nameToCheck);
         MatcherAssert.assertThat(someClient.checkNameToEmboss(), is(false));
