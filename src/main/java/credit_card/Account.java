@@ -9,7 +9,7 @@ public class Account {
 
     // Проверяет можно ли печатать имя на банковской карте
     public boolean checkNameToEmboss() {
-        boolean isChecked = checkNameLength() && checkAmountOfSpaces() && checkSpacesPlace();
+        boolean isChecked = checkNameLength() && checkSpacesPlace() && checkAmountOfSpaces();
         return isChecked;
     }
 
