@@ -28,7 +28,7 @@ public class AmountOfSpacesTest {
 
     @Test
     @DisplayName("Неверное количество пробелов")
-    @Description("Проверка, что программа не принимает записи, в которых более 1 пробела")
+    @Description("Проверка, что программа не принимает записи, в которых количество пробелов отлично от 1го")
     public void wrongSpacesAmount() {
         Account someClient = new Account(nameToCheck);
         MatcherAssert.assertThat(someClient.checkNameToEmboss(), is(false));
