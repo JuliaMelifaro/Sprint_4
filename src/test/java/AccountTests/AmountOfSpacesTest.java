@@ -13,24 +13,29 @@ import static org.hamcrest.CoreMatchers.is;
 @RunWith(Parameterized.class)
 public class AmountOfSpacesTest {
     private final String nameToCheck;
+    private final boolean result;
 
-    public AmountOfSpacesTest(String nameToCheck) {
+    public AmountOfSpacesTest(String nameToCheck, boolean result)
+    {
         this.nameToCheck = nameToCheck;
+        this.result = result;
     }
+
 
     @Parameterized.Parameters
     public static Object[][] getTestData() {
         return new Object[][]{
-                {"JKRowling"},                      // 0 пробелов
-                {"Martin Luther King"}              // 2 пробела
+                {"JKRowling", false},                      // 0 пробелов
+                {"Martin Luther King", false},             // 2 пробела
+                {"Abraham Lincoln", true}                  // 1 пробел
         };
     }
 
     @Test
-    @DisplayName("Неверное количество пробелов")
-    @Description("Проверка, что программа не принимает записи, в которых количество пробелов отлично от 1го")
+    @DisplayName("Различное количество пробелов")
+    @Description("Проверка, что программа принимает только записи с одним пробелом")
     public void wrongSpacesAmount() {
         Account someClient = new Account(nameToCheck);
-        MatcherAssert.assertThat(someClient.checkNameToEmboss(), is(false));
+        MatcherAssert.assertThat(someClient.checkNameToEmboss(), is(result));
     }
 }
